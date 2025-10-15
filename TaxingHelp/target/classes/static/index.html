@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxing Help - Our Services</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Our Services</h1>
+<div id="service-list"></div>
+
+<script>
+    fetch('/api/services')
+        .then(res => res.json())
+        .then(data => {
+            let html = "";
+            data.forEach(s => {
+                html += `<div class="card">
+                 <h3>${s.category}</h3>
+                 <p>${s.name}</p>
+               </div>`;
+            });
+            document.getElementById("service-list").innerHTML = html;
+        });
+</script>
+</body>
+</html>

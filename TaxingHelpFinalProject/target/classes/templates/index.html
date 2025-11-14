@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxing | Service Requests</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        body {
+            animation: fadeInUp 0.8s ease-in-out;
+        }
+
+        .table tbody tr {
+            animation: fadeInUp 0.6s ease-in-out;
+        }
+
+        .btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+    <h2 class="text-center mb-4 text-primary fw-bold">Taxing - Service Requests</h2>
+
+    <div class="text-end mb-3">
+        <a href="/new" class="btn btn-success me-2">+ New Request</a>
+        <a href="/payment" class="btn btn-warning">💳 Make Payment</a>
+        <a href="/h2-console" class="btn btn-secondary" target="_blank">🧠 View Database</a>
+    </div>
+
+    <table class="table table-striped table-bordered align-middle text-center shadow-sm">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Service Type</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="req : ${requests}">
+            <td th:text="${req.id}"></td>
+            <td th:text="${req.name}"></td>
+            <td th:text="${req.email}"></td>
+            <td th:text="${req.serviceType}"></td>
+            <td>
+                <span th:text="${req.status}"
+                      th:classappend="${req.status == 'Completed'} ? 'text-success fw-bold' : 'text-warning fw-semibold'"></span>
+            </td>
+            <td th:text="${req.createdAt}"></td>
+            <td>
+                <!-- Mark Done button -->
+                <form th:action="@{/complete/{id}(id=${req.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-primary">✔ Mark Done</button>
+                </form>
+
+                <!-- Delete button -->
+                <a th:href="@{/delete/{id}(id=${req.id})}" class="btn btn-danger btn-sm ms-1">🗑 Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

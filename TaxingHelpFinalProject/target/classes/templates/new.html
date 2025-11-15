@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Request | Taxing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <h2 class="text-center mb-4 text-primary">Create New Service Request</h2>
+
+    <form th:action="@{/save}" th:object="${request}" method="post" class="card p-4 shadow-sm">
+
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Enter full name">
+            <div th:if="${#fields.hasErrors('name')}" class="text-danger small" th:errors="*{name}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" th:field="*{email}" class="form-control" placeholder="Enter email address">
+            <div th:if="${#fields.hasErrors('email')}" class="text-danger small" th:errors="*{email}"></div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Service Type</label>
+            <input type="text" th:field="*{serviceType}" class="form-control" placeholder="Ex: ITR Filing, Tax Audit">
+            <div th:if="${#fields.hasErrors('serviceType')}" class="text-danger small" th:errors="*{serviceType}"></div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Save Request</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

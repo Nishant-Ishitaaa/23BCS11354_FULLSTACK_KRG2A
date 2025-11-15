@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -16,3 +17,42 @@ Note: This will impact Vite dev & build performances.
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+=======
+# Personal Portfolio Website
+
+This is a personal portfolio website for **Ishita Nishant**, a Computer Science Engineering student passionate about software development, algorithms, and full-stack technologies.
+
+## Features
+
+- Introduction section with profile image
+- Navigation links to GitHub, Leetcode, and LinkedIn
+- About section describing interests and focus areas
+- Skills list including Java, C++, Frontend, MySQL, and Python
+- Projects section listing three academic projects
+- Qualification table detailing academic background
+- Feedback form with name, email, and feedback fields
+- Clean footer section
+
+## Project Structure
+
+project-root/
+├── index.html
+├── Ishita_image.jpg
+
+
+##  Tech Stack
+
+- HTML5  
+*(CSS and JavaScript can be added later for styling and interactivity)*
+
+## How to Use
+
+1. Clone or download the repository.
+2. Add your image with the filename `Ishita_image.jpg` to the same folder.
+3. Open `index.html` in your browser to preview.
+
+## Author
+
+**Ishita Nishant**  
+Aspiring Full Stack Developer | CSE Student at Chandigarh University
+>>>>>>> e2967cc1d9b6d368bda80e34bd2a9477244aa25b
